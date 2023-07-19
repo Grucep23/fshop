@@ -15,6 +15,9 @@ export class Company {
   @Prop()
   description: string;
 
+  @Prop()
+  logo: string;
+
   @Prop({type: Object})
   createdBy: {
     _id: mongoose.Schema.Types.ObjectId,
@@ -33,6 +36,11 @@ export class Company {
     email: string,
   };
 
+  @Prop()
+  createdAt: Date;
+
+  @Prop()
+  updatedAt: Date;
 
   @Prop()
   isDeleted: boolean;

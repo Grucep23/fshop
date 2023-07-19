@@ -29,10 +29,8 @@ import { RESPONSE_MESSAGE } from 'src/decorator/customize';
           map((data) => ({
             statusCode: context.switchToHttp().getResponse().statusCode,
             message: this.reflector.get<string>(RESPONSE_MESSAGE,context.getHandler()) || '',
-            data: {
-              result: data.result,
-              meta: {} // if this is supposed to be the actual return then replace {} with data.result
-            }
-          })),
-        );
-    }}
+            data: data
+              // result: data.result,
+              // meta: {} // if this is supposed to be the actual return then replace {} with data.result
+            })))
+          }}

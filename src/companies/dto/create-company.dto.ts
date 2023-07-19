@@ -10,5 +10,9 @@ export class CreateCompanyDto {
 
     @IsNotEmpty()
     description: string;
+
+    @IsNotEmpty()
+    logo: string;
+    
     
 }
