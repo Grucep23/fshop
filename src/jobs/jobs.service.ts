@@ -13,7 +13,7 @@ export class JobsService {
 
   constructor(
     @InjectModel(Job.name) 
-    private jobModel: SoftDeleteModel<JobDocument>) { } 
+    private jobModel: SoftDeleteModel<JobDocument>) {} 
 
   async create(createJobDto: CreateJobDto, user: IUser) {
     const{

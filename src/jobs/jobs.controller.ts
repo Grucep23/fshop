@@ -13,7 +13,6 @@ export class JobsController {
   @ResponseMessage("create a new job")
  create(@Body() createJobDto: CreateJobDto, @User() user: IUser) {
     return this.jobsService.create(createJobDto, user);
-
   }
 
   @Get()
