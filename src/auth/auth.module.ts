@@ -12,7 +12,7 @@ import { RolesModule } from 'src/roles/roles.module';
 
 
 @Module({
-  imports: [UsersModule,RolesModule, PassportModule, 
+  imports: [UsersModule, RolesModule, PassportModule, 
     JwtModule.registerAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({

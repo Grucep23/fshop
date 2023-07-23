@@ -27,7 +27,7 @@ export class AuthService {
 
                 const objUser = {
                     ...user.toObject(),
-                    // permissions: temp?.permissions ?? []
+                    permissions: temp?.permissions ?? []
                 }
                 return objUser;
             }
@@ -35,7 +35,7 @@ export class AuthService {
         return null;
       }
       async login(user: IUser, response: Response) {
-        const { _id, name, email, role, permissions } = user;
+        const { _id, name, email, role, permissions} = user;
         const payload = {
         sub: "token login",
         iss: "from server",
@@ -43,7 +43,7 @@ export class AuthService {
         name,
         email,
         role,
-        permissions
+        permissions,
         };
 
         const refresh_token = this.createRefreshToken(payload)
@@ -60,7 +60,8 @@ export class AuthService {
             _id,
             name,
             email,
-            role   
+            role,
+            permissions
         }  
 }
 }
@@ -110,6 +111,7 @@ processNewToken = async (refreshToken: string, response: Response) => {
             httpOnly: true,
             maxAge:ms(this.configService.get<string>("JWT_REFRESH_EXPIRE")),
         })
+        
         return {
         access_token: this.jwtService.sign(payload),
         user:{
@@ -117,7 +119,7 @@ processNewToken = async (refreshToken: string, response: Response) => {
             name,
             email,
             role,
-            // permissions: temp?.permissions ?? []
+            permissions: temp?.permissions ?? []
 
         }  
 }

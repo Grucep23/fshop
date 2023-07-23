@@ -24,7 +24,7 @@ export class CreateUserDto {
 
     @IsNotEmpty()
     @IsMongoId()
-    role: string;
+    role: mongoose.Schema.Types.ObjectId;
 
     @IsNotEmptyObject()
     @IsObject()

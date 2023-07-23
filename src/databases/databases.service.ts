@@ -47,15 +47,15 @@ export class DatabasesService implements OnModuleInit {
                 await this.roleModel.insertMany([
                     {
                         name: ADMIN_ROLE,
-                        description: "Admin has full power",
+                        description: "Admin thì full quyền :v",
                         isActive: true,
                         permissions: permissions
                     },
                     {
                         name: USER_ROLE,
-                        description: "user use the system",
+                        description: "Người dùng/Ứng viên sử dụng hệ thống",
                         isActive: true,
-                        permissions: [] 
+                        permissions: [] //không set quyền, chỉ cần add ROLE
                     }
                 ]);
             }
@@ -68,14 +68,16 @@ export class DatabasesService implements OnModuleInit {
                         name: "I'm admin",
                         email: "admin@gmail.com",
                         password: this.userService.getHashPassword(this.configService.get<string>("INIT_PASSWORD")),
+                        age: 69,
                         gender: "MALE",
                         address: "VietNam",
                         role: adminRole?._id
                     },
                     {
-                        name: "abc",
-                        email: "abc@gmail.com",
+                        name: "I'm Duy",
+                        email: "duy@gmail.com",
                         password: this.userService.getHashPassword(this.configService.get<string>("INIT_PASSWORD")),
+                        age: 96,
                         gender: "MALE",
                         address: "VietNam",
                         role: adminRole?._id
@@ -84,6 +86,7 @@ export class DatabasesService implements OnModuleInit {
                         name: "I'm normal user",
                         email: "user@gmail.com",
                         password: this.userService.getHashPassword(this.configService.get<string>("INIT_PASSWORD")),
+                        age: 69,
                         gender: "MALE",
                         address: "VietNam",
                         role: userRole?._id
@@ -97,4 +100,3 @@ export class DatabasesService implements OnModuleInit {
         }
     }
 }
-

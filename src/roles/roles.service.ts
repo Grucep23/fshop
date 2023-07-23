@@ -18,6 +18,7 @@ export class RolesService {
   async create(createRoleDto: CreateRoleDto, user: IUser) {
     const{name, description, isActive, permissions} = createRoleDto;
     const isExist = await this.roleModel.findOne({name});
+
     if(isExist){
       throw new BadRequestException(`Role with name=${name} already exists`)
     }
@@ -66,7 +67,7 @@ export class RolesService {
 
   async findOne(id: string) {
     if(!mongoose.Types.ObjectId.isValid(id))
-      throw new BadRequestException('not found role');
+      {throw new BadRequestException('not found role')};
 
       return (await this.roleModel.findById(id))
       .populate({path: "permissions", select:{_id: 1, apiPath: 1, name: 1, method: 1, module: 1}})

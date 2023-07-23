@@ -16,6 +16,7 @@ export class PermissionsService {
 
   async create(createPermissionDto: CreatePermissionDto, user: IUser) {
     const{name, apiPath, method, module} = createPermissionDto;
+
     const isExist = await this.permissionModel.findOne({apiPath, method});
     if(isExist){
       throw new BadRequestException(`permission with apiPath=${apiPath}, method=${method} already exists`)
@@ -77,13 +78,13 @@ export class PermissionsService {
      const {module, method, apiPath, name} = updatePermissionDto;
 
     const updated = await this.permissionModel.updateOne(
-      {_id},
+      { _id },
       {
         module, method, apiPath, name,
         updatedBy:{
           _id: user._id,
-          email: user.email,
-        },
+          email: user.email
+        }
       });
       return updated;
   }
@@ -93,13 +94,13 @@ export class PermissionsService {
     return 'not found permission';
 
     await this.permissionModel.updateOne(
-      {_id: id},
+      { _id: id },
       {
         deletedBy:{
           _id: user._id,
           email: user.email,
         }
-      },
+      }
     )
     return this.permissionModel.softDelete({_id: id})
   }

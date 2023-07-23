@@ -21,7 +21,8 @@ export class PermissionsController {
     @Query('current') currentPage: string,
     @Query('pageSize') limit: string,
     @Query() qs: string,
-  ) {
+  ) 
+  {
     return this.permissionsService.findAll(+currentPage, +limit, qs);
   }
 

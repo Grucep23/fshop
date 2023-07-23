@@ -8,10 +8,10 @@ export class CreateRoleDto {
 
     @IsNotEmpty()
     @IsBoolean()
-    isActive: boolean
+    isActive: boolean;
 
     @IsNotEmpty()
     @IsArray()
-    @IsMongoId({each: true})
+    @IsMongoId({each: true, message: "each permission is a mongo object id"})
     permissions: mongoose.Schema.Types.ObjectId[];
 }
