@@ -47,15 +47,15 @@ export class DatabasesService implements OnModuleInit {
                 await this.roleModel.insertMany([
                     {
                         name: ADMIN_ROLE,
-                        description: "Admin thì full quyền :v",
+                        description: "Admin has full power",
                         isActive: true,
                         permissions: permissions
                     },
                     {
                         name: USER_ROLE,
-                        description: "Người dùng/Ứng viên sử dụng hệ thống",
+                        description: "user use the system",
                         isActive: true,
-                        permissions: [] //không set quyền, chỉ cần add ROLE
+                        permissions: [] 
                     }
                 ]);
             }

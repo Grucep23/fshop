@@ -29,6 +29,7 @@
     "@nestjs/mongoose": "^10.0.0",
     "@nestjs/passport": "^10.0.0",
     "@nestjs/platform-express": "9.4.0",
+    "@nestjs/swagger": "7.0.4",
     "add": "^2.0.6",
     "api-query-params": "5.4.0",
     "bcryptjs": "^2.4.3",
@@ -48,6 +49,7 @@
     "yarn": "^1.22.19"
   },
   "devDependencies": {
+    "@compodoc/compodoc": "^1.1.21",
     "@nestjs/cli": "9.4.2",
     "@nestjs/schematics": "9.1.0",
     "@nestjs/testing": "9.0.0",
